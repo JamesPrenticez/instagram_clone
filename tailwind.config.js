@@ -33,9 +33,6 @@ module.exports = {
       width:{
         176: "176px"
       },
-      scale: {
-        '-1': '-1',
-      },
       fontFamily: {
         sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
         roboto: ['Roboto'],
@@ -43,7 +40,6 @@ module.exports = {
       },
     },
   },
-  
   variants: {
     extend: {},
   },
