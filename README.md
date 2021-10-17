@@ -7,9 +7,12 @@ https://www.youtube.com/watch?v=a6Xs2Ir40OI
 - Tailwind CSS Intelli Sense
 
 # Packages
-- Tailwind Css
+- Next JS with Tailwind CSS example
+`npx create-next-app -e with-tailwindcss .`
+- @tailwindcss/forms (to over ride default form elements)
+`npm install @tailwindcss/forms`
 - Hero Icons (developed by the team at Tailwind)
 `npm install @heroicons/react`
 
 # Tips and Tricks
-- flex-shrink-0 to prevent images shrinking
+- flex-shrink-0 => to prevent images shrinking
