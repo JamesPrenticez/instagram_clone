@@ -42,7 +42,7 @@ https://www.youtube.com/watch?v=a6Xs2Ir40OI
 - custom utility class navBtn in the global.css file
 - animate-pulse
 - place cursor at end of function eg. useEffect and then hit CTRL + Space to import quickly
-- use ctrl + F to format more often!
+- use ctrl + K + F to format more often!
 - we enables tailwind mode: 'jit' which allows us to do things like this: p-[1.5px] called Arbitrary values
 - <p className="w-14 text-xs truncate"></p> which is cool
 

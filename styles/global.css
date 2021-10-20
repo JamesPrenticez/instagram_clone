@@ -13,6 +13,18 @@
             transition-all
             hover:scale-125
             duration-150
-            ease-out
+            ease-out;
+    }
+}
+@layer components {
+    .btn {
+        @apply
+            h-7
+            cursor-pointer
+            transform
+            transition-all
+            hover:scale-125
+            duration-150
+            ease-out;      
     }
 }
