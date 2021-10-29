@@ -47,3 +47,4 @@ https://www.youtube.com/watch?v=a6Xs2Ir40OI
 - <p className="w-14 text-xs truncate"></p> which is cool
 
 59.30
+2.20.20
