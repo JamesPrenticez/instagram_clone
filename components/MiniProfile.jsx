@@ -1,8 +1,8 @@
 function MiniProfile() {
     return (
-      <div className="mt-14 ml-10 flex items-center justify-between">
+      <div className="mt-10 flex items-center justify-between">
         <img
-          className="h-16 w-16 p-[2px] ml-10 rounded-full rounder cursor-pointer"
+          className="h-16 w-16 p-[2px] ml-10 border border-green-600 rounded-full rounder cursor-pointer"
           src="/james.png"
           alt="profile pic"
         />

@@ -13,7 +13,6 @@ import { HeartIcon as HeartIconFilled } from "@heroicons/react/solid"
 
 function Post({ id, username, userImg, img, caption }) {
     const [showMore, toggleShowMore] = useState(false)
-    console.log(showMore)
     return (
       <div className="bg-white my-7 border rounded-sm">
         {/* Header */}
