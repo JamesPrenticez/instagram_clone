@@ -1,12 +1,12 @@
 # Tutorial
 https://www.youtube.com/watch?v=a6Xs2Ir40OI
 
-# Extensions
+#### Extensions
 - ES7 React/Redux Snipets which gave us:
     - _rfce shortcut to create react functional component
 - Tailwind CSS Intelli Sense
 
-# Packages
+#### Packages
 - Next JS with Tailwind CSS example
 ```npx create-next-app -e with-tailwindcss .```
 - (@tailwindcss/forms)[https://github.com/tailwindlabs/tailwindcss-forms] (to over ride default form elements)
@@ -37,7 +37,7 @@ https://www.youtube.com/watch?v=a6Xs2Ir40OI
   - ``` npm i faker ```
 
 
-# Tips and Tricks
+#### Tips and Tricks
 - flex-shrink-0 => to prevent images shrinking
 - custom utility class navBtn in the global.css file
 - animate-pulse
@@ -46,6 +46,29 @@ https://www.youtube.com/watch?v=a6Xs2Ir40OI
 - we enables tailwind mode: 'jit' which allows us to do things like this: p-[1.5px] called Arbitrary values
 - <p className="w-14 text-xs truncate"></p> which is cool
 - div>h3 to create a ```<div><h3></h3></div>```
+- The ! in JavaScript, also called “bang operator"
 
 59.30
 2.20.20
+
+#### Next Auth - Beta v4
+[https://next-auth.js.org/getting-started/upgrade-v4]
+[https://next-auth.js.org/getting-started/example]
+``` npm i dotenv ```
+``` require('dotenv').config(); ```
+
+#### Firebase
+(console.firebase.google.com)[https://console.firebase.google.com/?pli=1]
+```npm i firebase```
+1. register web app
+2. copypasta config into firebase.js
+3. add getApps and getApp bacause of next js's ssr we need to impliment a "singleton pattern" ```const app = !getApps().length ? initializeApp(firebaseConfig) : getApps();```
+4. Prepare DB ```const db = getFirestore();```
+5. Install helpers 
+  - import { getFirestore } from "firebase/firestore"
+  - import { getStorage } from "firebase/storage"
+6. Initilise storage ```const storage = getStorage();```
+7. In order to use this outside of the firebase config we need to explicitly export them (which means epxort more than 1 thing) ```export { app, db, storage};```
+8. Go over to Build>Authentication>getstarted>google>enable
+9. Web SDK configuration and copy ID and Secret
+10. cloud.google.com > console
