@@ -7,12 +7,12 @@ function MiniProfile() {
           alt="profile pic"
         />
 
-        <div>
-            <h2>James Prentice</h2>
-            <h3>Welcome to Instagram</h3>
+        <div className="flex-1 mx-4">
+            <h2 className="font-bold">James Prentice</h2>
+            <h3 className="text-sm text-gray-400">Welcome to Self Regulator</h3>
         </div>
 
-        <button>Sign out</button>
+        <button className="text-blue-400 text-sm font-semibold">Sign out</button>
       </div>
     );
 }
