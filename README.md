@@ -73,5 +73,9 @@ https://www.youtube.com/watch?v=a6Xs2Ir40OI
 9. Web SDK configuration and copy ID and Secret
 10. cloud.google.com > console
 
+### Darkmode
+[https://invertase.io/blog/tailwind-dark-mode]
+
 ### Todo
 - Connect up csrf tokens for email login with next auth
+- Figure out how to persist dark mode setting

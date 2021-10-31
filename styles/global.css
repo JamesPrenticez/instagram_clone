@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+    --light-background: #f9fafb;
+    --dark-background: black;
+}
+
+html {
+    --background: var(--light-background);
+}
+
+html.dark {
+    --background: var(--dark-background);
+}
+
 @layer components {
     .navBtn{
         @apply 
