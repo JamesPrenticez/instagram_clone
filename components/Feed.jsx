@@ -8,7 +8,7 @@ function Feed() {
     const { data: session } = useSession();
     //console.log(session)
     return (
-        <main className="grid grid-cols-1 md:grid-cols-2 md:max-w-3xl lg:grid-cols-3 xl:max-w-6xl mx-auto">
+        <main className={`grid grid-cols-1 md:grid-cols-2 md:max-w-3xl lg:grid-cols-3 xl:max-w-6xl mx-auto ${!session &&"!grid-cols-1 !max-w-3xl"}`}>
             {/* Left Section */}
             <section className="col-span-2">
                 {/* Stories */}
