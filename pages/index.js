@@ -4,7 +4,7 @@ import Feed from '../components/Feed'
 
 export default function Home() {
   return (
-    <div className="bg-custom-background h-screen overflow-y-scroll scrollbar-hide">
+    <>
         <Head>
           <title>Self Regulator v2</title>
           <link rel="icon" href="/favicon.ico" />
@@ -15,6 +15,6 @@ export default function Home() {
       {/* Feed   */}
       <Feed />
       {/* Modal   */}
-    </div>
+    </>
   )
 }

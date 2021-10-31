@@ -1,4 +1,3 @@
-import { useState } from "react"
 import Image from "next/image"
 import {
     SearchIcon,
@@ -9,7 +8,7 @@ import {
     MenuIcon
 } from "@heroicons/react/outline"
 import { HomeIcon } from "@heroicons/react/solid"
-import ToggleDarkMode from "./ToggleDarkMode"
+import DarkModeButton from "./DarkModeButton"
 import { signIn, signOut, useSession } from "next-auth/react";
 
 
@@ -52,12 +51,12 @@ function Header() {
 
                 {/* Right - Icons*/}
                 <div className="flex items-center justify-end space-x-4">
-                    <ToggleDarkMode />
-                    <HomeIcon className="navBtn" />
                     <MenuIcon className="h-6 md:hidden cursor-pointer" />
+                    
                     
                     {session ? (
                         <>
+                            <HomeIcon className="navBtn" />
                             <div className="relative navBtn">
                                 <PaperAirplaneIcon className="navBtn rotate-45 translate-x-1 -translate-y-0.5"/>
                                 <div className="absolute -top-1 -right-3 text-xs h-5 w-5 bg-red-500 text-white rounded-full flex items-center justify-center">
@@ -67,7 +66,7 @@ function Header() {
                             <PlusCircleIcon className="navBtn" />
                             <UserGroupIcon className="navBtn" />
                             <HeartIcon className="navBtn" />
-
+                            <DarkModeButton />
                             <img 
                                 className="h-10 w-10 rounded-full cursor-pointer"
                                 src={session.user.image}

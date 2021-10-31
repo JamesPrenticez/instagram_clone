@@ -1,12 +1,9 @@
-export default function ToggleDarkMode() {
-    function toggleTheme(){
-        document.documentElement.classList.toggle('dark')
-    }
-
+export default function Toggle() {
     return (
+      <>
       <button
         title="Toggle Theme"
-        onClick={toggleTheme}
+        onClick=""
         className="
         w-12 
         h-6 
@@ -43,5 +40,6 @@ export default function ToggleDarkMode() {
         "
         ></div>
       </button>
+      </>
     );
 }
