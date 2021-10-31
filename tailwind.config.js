@@ -28,8 +28,6 @@ module.exports = {
       },
       height:{
         screenNav: "calc(100vh - 5rem)",
-        screenSide: "calc(100vh - 5.1rem)",
-        32: "32px"
       },
       width:{
         176: "176px"

@@ -9,7 +9,7 @@ function Suggestions() {
         ...faker.helpers.contextualCard(),
         id: i,
     }))
-    console.log(suggestions)
+    //console.log(suggestions)
     setSuggestions(suggestions)
 }, [])
 
@@ -30,7 +30,7 @@ function Suggestions() {
                src={profile.avatar}
                alt=""
             />
-            <div className="flex-1 ml-4">
+            <div className="flex-1 mx-4">
                 <h2 className="font-semibold text-sm">
                     {profile.username}
                 </h2>
@@ -38,7 +38,8 @@ function Suggestions() {
                     From {profile.address.city}
                 </h3>
             </div>
-            <button className="text-blue-400 text-xs font-bold">
+
+            <button className="text-blue-400 text-xs font-bold ">
                 Follow
             </button>
         </div>

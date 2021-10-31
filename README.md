@@ -72,3 +72,6 @@ https://www.youtube.com/watch?v=a6Xs2Ir40OI
 8. Go over to Build>Authentication>getstarted>google>enable
 9. Web SDK configuration and copy ID and Secret
 10. cloud.google.com > console
+
+### Todo
+- Connect up csrf tokens for email login with next auth
