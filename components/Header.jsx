@@ -10,16 +10,21 @@ import {
 import { HomeIcon } from "@heroicons/react/solid"
 import DarkModeButton from "./DarkModeButton"
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
+import { modalState } from "../atoms/modalAtom";
 
 function Header() {
     const {data: session} = useSession();
+    const router = useRouter();
+    const [open, setOpen] = useRecoilState(modalState);
     //console.log(session)
 
     return (
         <div className="shadow-sm border-b bg-custom-background sticky top-0 z-50">
             <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto">
                 {/* Left */}
-                <div className="relative w-176 hidden lg:inline-grid  cursor-pointer ">
+                <div onClick={() => router.push('/')} className="relative w-176 hidden lg:inline-grid  cursor-pointer ">
                     <h1 className="font-extrabold text-5xl mt-2 dark:text-green-600">SelfRegulator</h1>
                     {/* <Image 
                         src="/selfregulator.svg"
@@ -27,7 +32,7 @@ function Header() {
                         objectFit="contain" //keeps aspect ratio
                     /> */}
                 </div>
-                <div className="relative w-10 lg:hidden flex-shrink-0 cursor-pointer">
+                <div onClick={() => router.push('/')} className="relative w-10 lg:hidden flex-shrink-0 cursor-pointer">
                     <Image 
                         src="/icon.svg"
                         layout="fill" //fill to parent contain size
@@ -56,14 +61,14 @@ function Header() {
                     
                     {session ? (
                         <>
-                            <HomeIcon className="navBtn" />
+                            <HomeIcon onClick={() => router.push('/')} className="navBtn" />
                             <div className="relative navBtn">
                                 <PaperAirplaneIcon className="navBtn rotate-45 translate-x-1 -translate-y-0.5"/>
                                 <div className="absolute -top-1 -right-3 text-xs h-5 w-5 bg-red-500 text-white rounded-full flex items-center justify-center">
                                     3
                                 </div>
                             </div>
-                            <PlusCircleIcon className="navBtn" />
+                            <PlusCircleIcon onClick={() => setOpen(true)} className="navBtn" />
                             <UserGroupIcon className="navBtn" />
                             <HeartIcon className="navBtn" />
                             <DarkModeButton />

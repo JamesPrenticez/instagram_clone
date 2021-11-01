@@ -1,5 +1,6 @@
 import { getProviders, signIn as SignIntoProvider } from "next-auth/react"
 import Link from "next/link"
+import { useRouter } from "next/router";
 
 const logos = {
   GitHub: "/github.svg",
@@ -9,23 +10,22 @@ const logos = {
 
 //Client
 function signIn({ providers }) {
+  const router = useRouter();
   return (
     <>
     <div className="p-10 h-screenNav flex flex-wrap justify-center items-center">
       <div className="w-3/6 xl:w-1/5 border border-gray-600 rounded">
           <div className="flex flex-wrap justify-center h-1/4 w-full">
             <div className="p-4">
-            <Link href="/">
+
               <img
+                  onClick={() => router.push('/')}
                   src={'/icon.svg'}
                   className="bg-black border-2 border-black rounded-full hover:cursor-pointer"
                   width="180"
                   height="180"
-                  layout="intrinsic"
-                  objectFit="contain"
                   alt=""
               />
-              </Link>
             </div>
           </div>
 

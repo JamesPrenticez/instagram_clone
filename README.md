@@ -76,6 +76,19 @@ https://www.youtube.com/watch?v=a6Xs2Ir40OI
 ### Darkmode
 [https://invertase.io/blog/tailwind-dark-mode]
 
+### Recoil instead of Redux
+(recoiljs)[https://recoiljs.org/]
+```npm i recoil```
+Wrap MyApp in the RecoilRoot
+We make a Atom or a Slice to store different portions of the sotre eg. users or modals... so its not a jumbled mess
+
+### Headless UI for our modal
+```npm i @headlessui/react```
+```//modal.jsx
+import { Dialog, Transition } from "@headlessui/react"
+```
+3.55.00 - modal onClose - super powerful
+
 ### Todo
 - Connect up csrf tokens for email login with next auth
 - Figure out how to persist dark mode setting
