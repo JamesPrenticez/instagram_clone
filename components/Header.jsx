@@ -11,21 +11,21 @@ import { HomeIcon } from "@heroicons/react/solid"
 import DarkModeButton from "./DarkModeButton"
 import { signIn, signOut, useSession } from "next-auth/react";
 
-
 function Header() {
     const {data: session} = useSession();
     //console.log(session)
 
     return (
-        <div className="shadow-sm border-b bg-white sticky top-0 z-50">
+        <div className="shadow-sm border-b bg-custom-background sticky top-0 z-50">
             <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto">
                 {/* Left */}
-                <div className="relative w-176 hidden lg:inline-grid  cursor-pointer">
-                    <Image 
+                <div className="relative w-176 hidden lg:inline-grid  cursor-pointer ">
+                    <h1 className="font-extrabold text-5xl mt-2 dark:text-green-600">SelfRegulator</h1>
+                    {/* <Image 
                         src="/selfregulator.svg"
                         layout="fill" //fill to parent contain size
                         objectFit="contain" //keeps aspect ratio
-                    />
+                    /> */}
                 </div>
                 <div className="relative w-10 lg:hidden flex-shrink-0 cursor-pointer">
                     <Image 

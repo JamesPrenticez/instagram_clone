@@ -14,7 +14,7 @@ import { HeartIcon as HeartIconFilled } from "@heroicons/react/solid"
 function Post({ id, username, userImg, img, caption }) {
     const [showMore, toggleShowMore] = useState(false)
     return (
-      <div className="bg-white my-7 border rounded-sm">
+      <div className="bg-custom-background my-7 border rounded-sm">
         {/* Header */}
         <div className="flex items-center p-5">
           <img
@@ -22,8 +22,8 @@ function Post({ id, username, userImg, img, caption }) {
             alt=""
             className="rounded-full h-12 w-12 object-contain border p-1 mr-3"
           />
-          <p className="flex-1 font-bold">{username}</p>
-          <DotsHorizontalIcon className="h-5 cursor-pointer" />
+          <p className="flex-1 font-bold text-custom-textColor">{username}</p>
+          <DotsHorizontalIcon className="h-5 cursor-pointer text-custom-textColor" />
         </div>
 
         {/* Img */}
@@ -42,8 +42,8 @@ function Post({ id, username, userImg, img, caption }) {
         {/* Caption */}
         <div className="p-5">
           <p className={`${showMore ? "" : "truncate"}`}>
-            <span className="font-bold mr-1">{username}</span>
-            {caption}
+            <span className="font-bold mr-2 text-custom-textColor">{username}</span>
+            <span className="text-custom-textColor">{caption}</span>
           </p>
           {/* show more */}
           <p
@@ -55,12 +55,12 @@ function Post({ id, username, userImg, img, caption }) {
         {/* Comments */}
 
         {/* Input Box */}
-        <form className="flex items-center p-4">
-          <EmojiHappyIcon className="h-6" />
+        <form className="flex items-center pb-4 pl-4 pr-4">
+          <EmojiHappyIcon className="h-6 text-custom-textColor hover:cursor-pointer" />
           <input
             type="text"
             placeholder="Add a comment..."
-            className="border-none flex-1 focus:ring-0 outline-none"
+            className="border-none flex-1 focus:ring-0 outline-none m-2"
           />
           <button className="font-semi-bold text-blue-400">
             Post

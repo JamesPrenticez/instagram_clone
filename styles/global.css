@@ -5,19 +5,25 @@
 :root{
     --light-background: #f9fafb;
     --dark-background: black;
+    --light-text: black;
+    --dark-text: #f9fafb;
 }
 
 html {
     --background: var(--light-background);
+    --textColor: var(var(--light-text));
 }
 
 html.dark {
     --background: var(--dark-background);
+    --textColor: var(--dark-text);
+
 }
 
 @layer components {
     .navBtn{
-        @apply 
+        @apply
+            text-custom-textColor 
             hidden 
             md:inline-flex
             h-6
@@ -32,6 +38,7 @@ html.dark {
 @layer components {
     .btn {
         @apply
+            text-custom-textColor
             h-7
             cursor-pointer
             transform

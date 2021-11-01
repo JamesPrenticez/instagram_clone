@@ -11,17 +11,12 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
             rel="stylesheet"
           />
-
-          {/* if (localStorage.theme === 'dark' || (!('theme' in localStorage) &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches)){" "}
-          {document.documentElement.classList.add("dark")} else{" "}
-          {document.documentElement.classList.remove("dark")} */}
-          
+         
         </Head>
-        <body className="bg-custom-background h-screen overflow-y-scroll scrollbar-hide">
+        <body className="bg-custom-background h-screen overflow-y-scroll scrollbar-hide font-sans">
           <Main />
           <NextScript />
         </body>

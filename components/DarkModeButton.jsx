@@ -8,7 +8,7 @@ export default function DarkModeButton() {
         <svg
           onClick={() => setTheme("light")}
           xmlns="http://www.w3.org/2000/svg"
-          className="navBtn text-black"
+          className="navBtn"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -24,7 +24,7 @@ export default function DarkModeButton() {
         <svg
           onClick={() => setTheme("dark")}
           xmlns="http://www.w3.org/2000/svg"
-          className="navBtn text-black"
+          className="navBtn"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

@@ -26,7 +26,8 @@ module.exports = {
           600: '#D9D9D9'
         },
         custom: {
-          background: "var(--background)"
+          background: "var(--background)",
+          textColor: "var(--textColor)"
         }
       },
       height:{
@@ -36,9 +37,9 @@ module.exports = {
         176: "176px"
       },
       fontFamily: {
-        sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
         roboto: ['Roboto'],
-        verdana: ['Verdana']
+        verdana: ['Verdana'],
+        poppins: ['Poppins']
       },
     },
   },
