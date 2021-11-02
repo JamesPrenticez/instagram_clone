@@ -82,7 +82,8 @@ function Header() {
                     ) : 
                     (
                         <>
-                            <button onClick={signIn}>Sign In</button>                        
+                            <DarkModeButton />
+                            <button className="text-custom-textColor w-32 p-2 font-bold border border-gray-600 rounded hover:border-green-600 hover:text-green-600" onClick={signIn}>Sign In</button>                        
                         </>
                     )}
 

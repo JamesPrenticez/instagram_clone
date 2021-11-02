@@ -19,7 +19,7 @@ function Feed() {
             
             {/* Right Section */}
             {session && (
-                <section className="hidden xl:inline-flex cols-span-1">
+                <section className="hidden lg:inline-flex cols-span-1">
                     <div className="fixed top-20">
                         {/* Mini Profile */}
                         <MiniProfile />
