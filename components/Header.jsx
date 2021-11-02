@@ -1,14 +1,15 @@
 import Image from "next/image"
+import DarkModeButton from "./DarkModeButton"
 import {
     SearchIcon,
     PlusCircleIcon,
     UserGroupIcon,
     HeartIcon,
     PaperAirplaneIcon,
-    MenuIcon
+    MenuIcon,
+    ClipboardListIcon
 } from "@heroicons/react/outline"
 import { HomeIcon } from "@heroicons/react/solid"
-import DarkModeButton from "./DarkModeButton"
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
@@ -71,6 +72,7 @@ function Header() {
                             <PlusCircleIcon onClick={() => setOpen(true)} className="navBtn" />
                             <UserGroupIcon className="navBtn" />
                             <HeartIcon className="navBtn" />
+                            <ClipboardListIcon className="navBtn" />
                             <DarkModeButton />
                             <img 
                                 className="h-10 w-10 rounded-full cursor-pointer"
