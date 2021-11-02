@@ -1,6 +1,5 @@
-
 import Chevron from "./Chevron";
-
+import WinTheDay from "./WinTheDay";
 
 const menuItems = [
     {
@@ -26,27 +25,26 @@ function Tools() {
         <section className="hidden lg:inline-flex cols-span-1">
           <div className="sticky w-full h-full border-l border-r border-green-600 ">
             <>
-              <div className=" divide-y divide-green-600">
+              <div className="divide-y divide-green-600">
                 {menuItems.map((item) => (
-                <div 
-                    key={item.id}
-                    id={item.id}
-                    className="flex text-custom-textColor font-semibold text-2xl justify-between p-4"
-                >
-                    {item.name}
-                    {item.content ? (<Chevron />) : ("")}
-                    
-                </div>
-
+                    <div 
+                        key={item.id}
+                        id={item.id}
+                        className="flex text-custom-textColor font-semibold text-2xl justify-between p-4"
+                    >
+                        {item.name}
+                        {item.content ? (<Chevron />) : ("")}
+                    </div>
                 ))}
-
               </div>
             </>
           </div>
         </section>
 
         <section className="col-span-2">
-          <div className="bg-green-800 w-full h-full">hi</div>
+          <div className="bg-custom-background w-full h-full">
+              <WinTheDay />
+          </div>
         </section>
       </main>
     );
