@@ -27,7 +27,7 @@ module.exports = {
         },
         custom: {
           background: "var(--background)",
-          textColor: "var(--textColor)"
+          textColor: "var(--textColor)",
         }
       },
       height:{

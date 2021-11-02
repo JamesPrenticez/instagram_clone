@@ -17,7 +17,6 @@ html {
 html.dark {
     --background: var(--dark-background);
     --textColor: var(--dark-text);
-
 }
 
 @layer components {
@@ -46,5 +45,13 @@ html.dark {
             hover:scale-125
             duration-150
             ease-out;      
+    }
+}
+@layer components {
+    .fade {
+        @apply
+            transition-all
+            ease-in-out
+            duration-1000;
     }
 }

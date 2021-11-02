@@ -75,6 +75,8 @@ https://www.youtube.com/watch?v=a6Xs2Ir40OI
 
 ### Darkmode
 [https://invertase.io/blog/tailwind-dark-mode]
+maybe need to do this 
+https://dev.to/enochndika/dark-mode-with-tailwindcss-in-next-js-2if5
 
 ### Recoil instead of Redux
 (recoiljs)[https://recoiljs.org/]
@@ -92,3 +94,4 @@ import { Dialog, Transition } from "@headlessui/react"
 ### Todo
 - Connect up csrf tokens for email login with next auth
 - Figure out how to persist dark mode setting
+- this to fix dark mode issue https://stackoverflow.com/questions/55271855/react-material-ui-ssr-warning-prop-d-did-not-match-server-m-0-0-h-24-v-2/56525858

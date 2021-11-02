@@ -22,7 +22,7 @@ function Header() {
     //console.log(session)
 
     return (
-        <div className="shadow-sm border-b bg-custom-background sticky top-0 z-50">
+        <div className="shadow-sm border-b bg-custom-background sticky top-0 z-50 fade">
             <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto">
                 {/* Left */}
                 <div onClick={() => router.push('/')} className="relative w-176 hidden lg:inline-grid  cursor-pointer ">
@@ -72,7 +72,7 @@ function Header() {
                             <PlusCircleIcon onClick={() => setOpen(true)} className="navBtn" />
                             <UserGroupIcon className="navBtn" />
                             <HeartIcon className="navBtn" />
-                            <ClipboardListIcon className="navBtn" />
+                            <ClipboardListIcon  onClick={() => router.push('/tools')} className="navBtn" />
                             <DarkModeButton />
                             <img 
                                 className="h-10 w-10 rounded-full cursor-pointer"

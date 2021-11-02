@@ -1,5 +1,4 @@
 import { getProviders, signIn as SignIntoProvider } from "next-auth/react"
-import Link from "next/link"
 import { useRouter } from "next/router";
 
 const logos = {
@@ -13,7 +12,7 @@ function signIn({ providers }) {
   const router = useRouter();
   return (
     <>
-    <div className="p-10 h-screenNav flex flex-wrap justify-center items-center">
+    <div className="p-10 h-screen flex flex-wrap justify-center items-center bg-custom-background">
       <div className="w-3/6 xl:w-1/5 border border-gray-600 rounded">
           <div className="flex flex-wrap justify-center h-1/4 w-full">
             <div className="p-4">
