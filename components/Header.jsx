@@ -13,7 +13,7 @@ import { HomeIcon } from "@heroicons/react/solid"
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
-import { modalState } from "../atoms/modalAtom";
+import { modalState } from '../atoms/modal';
 
 function Header() {
     const {data: session} = useSession();
@@ -73,7 +73,7 @@ function Header() {
                             <UserGroupIcon className="navBtn" />
                             <HeartIcon className="navBtn" />
                             <ClipboardListIcon  onClick={() => router.push('/tools')} className="navBtn" />
-                            <DarkModeButton />
+                            {/* <DarkModeButton /> */}
                             <img 
                                 className="h-10 w-10 rounded-full cursor-pointer"
                                 src={session.user.image}

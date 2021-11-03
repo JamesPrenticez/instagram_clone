@@ -1,4 +1,10 @@
-import { collection, onSnapshot, orderBy, query } from "@firebase/firestore";
+import { 
+  collection,
+  doc,
+  onSnapshot,
+  orderBy,
+  query
+} from "@firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
 import Post from "./Post"
@@ -7,15 +13,16 @@ function Posts() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-      const unsubscribe = onSnapshot(query(collection(db, "posts"), orderBy("timestamp", "desc")), snapshot => {
-        setPosts(snapshot.docs);
-      })
-      return () => {
-        unsubscribe();  
-      }
-    }, [])
+      const unsuscribe = onSnapshot(
+        query(collection(db, 'posts'), orderBy('timestamp', 'desc')),
+        (snapshot) => {
+          setPosts(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        }
+      );
+      return unsuscribe; // clean up
+    }, [db]);
 
-    //console.log(posts)
+    console.log(posts)
 
     return (
       <div>
@@ -23,10 +30,10 @@ function Posts() {
           <Post
             key={post.id}
             id={post.id}
-            username={post.data().username}
-            userImg={post.data().profileImg}
-            img={post.data().image}
-            caption={post.data().caption}
+            username={post.username}
+            userImg={post.profileImg}
+            img={post.image}
+            caption={post.caption}
           />
         ))}
       </div>
