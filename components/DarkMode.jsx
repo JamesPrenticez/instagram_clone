@@ -44,10 +44,6 @@ const DarkModeToggle = () => {
               onChange={handleToggle}
           />
         )}
-        {/* <label>
-          <input type="checkbox" checked={darkTheme} onChange={handleToggle} />
-          Dark
-        </label> */}
       </>
     );
 }

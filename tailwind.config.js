@@ -26,8 +26,12 @@ module.exports = {
           600: '#D9D9D9'
         },
         custom: {
-          primary: "var(--primary)",
-          secondary: "var(--secondary)",
+          primary: "var(--color-primary)",
+          secondary: "var(--color-secondary)",
+          tertiary: "var(--color-tertiary)",
+          primaryAccent: "var(--color-primary-accent)",
+          secondaryAccent: "var(--color-secondary-accent)",
+          tertiaryAccent: "var(--color-tertiary-accent)",
         }
       },
       height:{

@@ -58,7 +58,7 @@ function Post({ id, username, userImg, img, caption }) {
     }
 
     return (
-      <div className="bg-custom-background my-7 border rounded-sm">
+      <div className="bg-custom-background my-7 border border-custom-tertiaryAccent rounded-sm">
         {/* Header */}
         <div className="flex items-center p-5">
           <img
@@ -100,7 +100,7 @@ function Post({ id, username, userImg, img, caption }) {
           >{`${showMore ? "show less" : "show more"}`}</p>
         </div>
         
-        {console.log(comments)}
+        {/* {console.log(comments)} */}
         {/* Comments */}
         {comments.length > 0 && (
           <div className='ml-5 h-20 overflow-y-scroll scrollbar-thumb-black scrollbar-thin'>
@@ -124,20 +124,20 @@ function Post({ id, username, userImg, img, caption }) {
 
         {/* Input Box */}
         {session && (
-          <form className="flex items-center pb-4 pl-4 pr-4">
-            <EmojiHappyIcon className="h-6 text-custom-textColor hover:cursor-pointer" />
+          <form className="flex items-center pb-4 pl-4 pr-4 ">
             <input
               type="text"
               value={comment}
-              onChange={(e) => setComments(e.target.value)}
+              onChange={(e) => setComment(e.target.value)}
               placeholder="Add a comment..."
-              className="border-none flex-1 focus:ring-0 outline-none m-2"
+              className="flex-1 focus:ring-0 outline-none m-2 bg-transparent border-none"
             />
+            <EmojiHappyIcon className="h-6 pr-2 text-custom-secondary hover:cursor-pointer"/>
             <button
               type="submit"
               disabled={!comment.trim()}
               onClick={sendComment}
-              className="font-semi-bold text-blue-400"
+              className="font-semi-bold py-1 px-4 rounded-lg bg-custom-primaryAccent text-custom-secondary"
             >
               Post
             </button>

@@ -22,7 +22,7 @@ function Posts() {
       return unsuscribe; // clean up
     }, [db]);
 
-    console.log(posts)
+    //console.log(posts)
 
     return (
       <div>
