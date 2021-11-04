@@ -1,5 +1,5 @@
 import Image from "next/image"
-import DarkModeButton from "./DarkModeButton"
+import DarkModeToggle from "./DarkMode"
 import {
     SearchIcon,
     PlusCircleIcon,
@@ -22,7 +22,7 @@ function Header() {
     //console.log(session)
 
     return (
-        <div className="shadow-sm border-b bg-custom-background sticky top-0 z-50 fade">
+        <div className="shadow-sm border-b bg-custom-primary sticky top-0 z-50 fade">
             <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto">
                 {/* Left */}
                 <div onClick={() => router.push('/')} className="relative w-176 hidden lg:inline-grid  cursor-pointer ">
@@ -73,7 +73,7 @@ function Header() {
                             <UserGroupIcon className="navBtn" />
                             <HeartIcon className="navBtn" />
                             <ClipboardListIcon  onClick={() => router.push('/tools')} className="navBtn" />
-                            {/* <DarkModeButton /> */}
+                            <DarkModeToggle />
                             <img 
                                 className="h-10 w-10 rounded-full cursor-pointer"
                                 src={session.user.image}
@@ -84,8 +84,8 @@ function Header() {
                     ) : 
                     (
                         <>
-                            <DarkModeButton />
-                            <button className="text-custom-textColor w-32 p-2 font-bold border border-gray-600 rounded hover:border-green-600 hover:text-green-600" onClick={signIn}>Sign In</button>                        
+                            <DarkModeToggle />
+                            <button className="text-custom-secondary w-32 p-2 font-bold border border-gray-600 rounded hover:border-green-600 hover:text-green-600" onClick={signIn}>Sign In</button>                        
                         </>
                     )}
 

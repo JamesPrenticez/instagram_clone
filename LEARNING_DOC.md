@@ -77,6 +77,8 @@ https://www.youtube.com/watch?v=a6Xs2Ir40OI
 [https://invertase.io/blog/tailwind-dark-mode]
 maybe need to do this 
 https://dev.to/enochndika/dark-mode-with-tailwindcss-in-next-js-2if5
+- https://medium.com/sonny-sangha/how-to-implement-dark-mode-in-tailwind-css-a89ea5066b7d
+- The Quest for the perfect darkmode https://sreetamdas.com/blog/the-perfect-dark-mode
 
 ### Recoil instead of Redux
 (recoiljs)[https://recoiljs.org/]

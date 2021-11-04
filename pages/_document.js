@@ -1,18 +1,57 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from "next/document";
+function setInitialColorMode() {
+  function getInitialColorMode() {
+    const preference = window.localStorage.getItem("theme");
+    const hasExplicitPreference = typeof preference === "string";
+    /**
+     * If the user has explicitly chosen light or dark,
+     * use it. Otherwise, this value will be null.
+     */
+    if (hasExplicitPreference) {
+      return preference;
+    }
+    // If there is no saved preference, use a media query
+    const mediaQuery = "(prefers-color-scheme: dark)";
+    const mql = window.matchMedia(mediaQuery);
+    const hasImplicitPreference = typeof mql.matches === "boolean";
+    if (hasImplicitPreference) {
+      return mql.matches ? "dark" : "light";
+    }
+    // default to 'light'.
+    return "light";
+  }
+  const colorMode = getInitialColorMode();
+  const root = document.documentElement;
+  root.style.setProperty("--initial-color-mode", colorMode);
+  // add HTML attribute if dark mode
+  if (colorMode === "dark")
+    document.documentElement.setAttribute("data-theme", "dark");
+}
+// our function needs to be a string
+const blockingSetInitialColorMode = `(function() {
+		${setInitialColorMode.toString()}
+		setInitialColorMode();
+})()
+`;
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
-  }
-
   render() {
     return (
       <Html>
         <Head>
           <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet" />
         </Head>
-        <body className="bg-custom-background transition-all duration-1000 h-screen overflow-y-scroll scrollbar-hide font-sans">
+        <body>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: blockingSetInitialColorMode,
+            }}
+          ></script>
           <Main />
           <NextScript />
         </body>
@@ -21,4 +60,4 @@ class MyDocument extends Document {
   }
 }
 
-export default MyDocument;
+export default MyDocument

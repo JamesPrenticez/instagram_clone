@@ -2,27 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-    --light-background: #f9fafb;
-    --dark-background: black;
-    --light-text: black;
-    --dark-text: #f9fafb;
+:root {
+    --color-primary-accent: #3482F6;
+    --color-secondary-accent: #6b7280;
+    --color-tertiary-accent: #7c3aed;
+    --color-primary: #fff; /* text */
+    --color-secondary: #000; /* background color */
+    --color-tertiary: #D1D6DB; 
+}
+
+[data-theme="dark"] {
+    --color-primary-accent: #ffff00;
+    --color-secondary-accent: #00FF00;
+    --color-tertiary-accent: #7c3aed;
+    --color-primary: #000;
+    --color-secondary: #fff;
+    --color-tertiary: #D1D6DB; 
+}
+
+body {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
 }
 
 html {
-    --background: var(--light-background);
-    --textColor: var(var(--light-text));
-}
-
-html.dark {
-    --background: var(--dark-background);
-    --textColor: var(--dark-text);
+    --primary: var(--color-primary);
+    --secondary: var(var(--color-secondary));
 }
 
 @layer components {
     .navBtn{
         @apply
-            text-custom-textColor 
+            text-custom-secondary 
             hidden 
             md:inline-flex
             h-6
@@ -37,7 +48,7 @@ html.dark {
 @layer components {
     .btn {
         @apply
-            text-custom-textColor
+            text-custom-secondary
             h-7
             cursor-pointer
             transform
@@ -52,6 +63,6 @@ html.dark {
         @apply
             transition-all
             ease-in-out
-            duration-1000;
+            duration-150;
     }
 }

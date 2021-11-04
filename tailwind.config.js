@@ -26,8 +26,8 @@ module.exports = {
           600: '#D9D9D9'
         },
         custom: {
-          background: "var(--background)",
-          textColor: "var(--textColor)",
+          primary: "var(--primary)",
+          secondary: "var(--secondary)",
         }
       },
       height:{
