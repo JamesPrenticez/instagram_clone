@@ -8,7 +8,9 @@ import {
     onSnapshot,
     orderBy,
     query,
-    serverTimestamp
+    serverTimestamp,
+    setDoc,
+    deleteDoc
 } from "@firebase/firestore"
 import {
     BookmarkIcon,
@@ -26,9 +28,11 @@ function Post({ id, username, userImg, img, caption }) {
     const [showMore, toggleShowMore] = useState(false);
     const [comment, setComment] = useState("");
     const [comments, setComments] = useState([]);
+    const [likes, setLikes] = useState([]);
+    const [hasLiked, setHasLiked] = useState(false);
 
-    useEffect(
-      () =>
+    //Comments from Firebase
+    useEffect(() =>
       onSnapshot(
         query(
           collection(db, "posts", id, "comments"),
@@ -39,24 +43,50 @@ function Post({ id, username, userImg, img, caption }) {
               snapshot.docs.map((doc) => ({...doc.data(), id: doc.id}))
             )
         ),
-      [db]
+      [db, id]
+    );
+    
+    //Likes from Firebase useEffect is listening in
+    useEffect(
+      () =>
+        onSnapshot(collection(db, 'posts', id, 'likes'), (snapshot) =>
+          setLikes(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        ),
+      [db, id]
     );
 
+    //Has Liked?
+    useEffect(() => {
+      setHasLiked(
+        likes.findIndex((like) => like.id === session?.user?.uid) !== -1
+      );
+    }, [likes]);
+
+    
     const sendComment = async (e) => {
       e.preventDefault();
-
+      
       const commentToSend = comment;
       setComment('')
-
+      
       await addDoc(collection(db, "posts", id, "comments"), {
         comment: commentToSend,
         username: session.user?.username,
         userImage: session.user?.image,
         timestamp: serverTimestamp(),
-      })
-
-    }
-
+      });
+    };
+    
+    const likePost = async () => {
+      if (hasLiked){
+        await deleteDoc(doc(db, "posts", id, "likes", session.user?.uid))       
+      } else {
+        await setDoc(doc(db, "posts", id, "likes", session.user?.uid), {
+          username: session.user.username,
+        });
+      }
+    };
+    
     return (
       <div className="bg-custom-background my-7 border border-custom-tertiaryAccent rounded-sm">
         {/* Header */}
@@ -77,7 +107,13 @@ function Post({ id, username, userImg, img, caption }) {
         {session && (
           <div className="flex justify-between px-4 pt-4">
             <div className="flex space-x-4">
-              <HeartIcon className="btn" />
+
+              {hasLiked ? (
+                <HeartIconFilled onClick={likePost} className="btn text-red-500" />              
+                ) : (
+                <HeartIcon onClick={likePost} className="btn" />
+              )}
+
               <ChatIcon className="btn" />
               <PaperAirplaneIcon className="btn" />
             </div>
@@ -103,7 +139,7 @@ function Post({ id, username, userImg, img, caption }) {
         {/* {console.log(comments)} */}
         {/* Comments */}
         {comments.length > 0 && (
-          <div className='ml-5 h-20 overflow-y-scroll scrollbar-thumb-black scrollbar-thin'>
+          <div className='ml-5 h-20 overflow-y-scroll scrollbar-thumb-custom-secondary scrollbar-thin'>
             {comments.map((comment) => (
               <div
                 key={comment.id}

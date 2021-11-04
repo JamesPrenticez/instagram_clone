@@ -9,15 +9,7 @@ function Task({item}) {
       {item.boxes.map((box) => (
         <div
           key={Math.random()}
-          className={`mt-2 rounded-sm ${
-            box === true
-              ? "bg-green-600"
-              : box === null
-              ? "bg-yellow-600"
-              : !box
-              ? "bg-red-600"
-              : ""
-          }`}
+          className={`mt-2 rounded-sm ${box === true ? "bg-green-600" : box === null ? "bg-yellow-600" : !box ? "bg-red-600" : ""}`}
         >
           <p className="text-sm xl:text-2xl text-black">
             {JSON.stringify(box)}
