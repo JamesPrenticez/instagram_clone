@@ -1,4 +1,3 @@
-import Image from "next/image"
 import DarkModeToggle from "./DarkMode"
 import {
     PlusCircleIcon,
@@ -6,7 +5,7 @@ import {
     ClipboardListIcon
 } from "@heroicons/react/outline"
 import { HomeIcon } from "@heroicons/react/solid"
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { modalState } from '../atoms/modal';
@@ -18,16 +17,16 @@ function Header() {
     //console.log(session)
 
     return (
-        <div className="shadow-sm border-b bg-custom-primary sticky top-0 z-50 fade">
+        <div className="shadow-sm border-b border-custom-tertiaryAccent bg-custom-primary sticky top-0 z-50 fade">
             <div className="grid grid-cols-2 md:max-w-3xl lg:grid-cols-3 xl:max-w-6xl mx-auto">
                 {/* Left */}
                 <div className="col-span-1 lg:col-span-2">
                     <div onClick={() => router.push('/')} className="relative w-176 hidden lg:inline-grid cursor-pointer ">
-                        <h1 className="h-16 font-extrabold text-5xl text-custom-secondaryAccent">SelfRegulator</h1>
+                        <h1 className="h-16 mt-1 font-extrabold text-5xl text-custom-secondaryAccent">SelfRegulator</h1>
                     </div>
                     <div onClick={() => router.push('/')} className="h-16 relative w-10 lg:hidden flex-shrink-0 cursor-pointer">
                         <img 
-                            className="h-16 w-16"
+                            className="h-16 w-16 mt-1"
                             src="/icon.svg"
                         />
                     </div>
@@ -53,7 +52,12 @@ function Header() {
                     (
                         <>
                             <DarkModeToggle />
-                            <button className="text-custom-secondary w-32 p-2 font-bold border border-gray-600 rounded hover:border-green-600 hover:text-green-600" onClick={signIn}>Sign In</button>                        
+                            <button 
+                                className="text-custom-secondary w-32 p-2 font-bold border border-gray-600 rounded hover:border-green-600 hover:text-green-600" 
+                                onClick={() => router.push('/auth/signin')} 
+                            >
+                                Sign In
+                            </button>                        
                         </>
                     )}
 

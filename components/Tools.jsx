@@ -19,7 +19,6 @@ const menuItems = [
 ];
 
 function Tools() {
-
     return (
       <main className="bg-custom-background fade grid grid-cols-1 md:grid-cols-2 md:max-w-3xl lg:grid-cols-3 xl:max-w-6xl mx-auto">
         <section className="hidden lg:inline-flex cols-span-1">

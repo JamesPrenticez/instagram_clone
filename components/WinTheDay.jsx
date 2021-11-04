@@ -1,3 +1,6 @@
+import React from "react"
+import Task from "./Task";
+
 const todos = [
     {
         id: 0,
@@ -14,12 +17,21 @@ const todos = [
     {
         id: 2,
         task: "Work on Bussiness",
-        boxes: [true, true , null, null, null, null, null],
+        boxes: [true, true , null, null, null, null, true],
         type: "duration"
     }
 ]
 
-function WinTheDay() {
+class WinTheDay extends React.Component{
+  
+  componentDidMount() {
+    //get Task from DB
+    //set Task in state
+  }
+
+render(){
+
+
     return (
       <div className="p-4 xl:mt-4 xl:ml-4">
         <div className="grid grid-cols-12 text-custom-textColor justify-center items-center text-center font-semibold xl:text-5xl mb-4">
@@ -34,26 +46,11 @@ function WinTheDay() {
         </div>
 
         {todos.map((item) => (
-            <div 
-                key={item.id}
-                className="grid grid-cols-12 text-custom-textColor justify-center items-center text-center xl:text-2xl gap-x-1"
-            >
-            <p className="col-span-5 !text-left">{item.task}</p>
-
-            {item.boxes.map((box) => (
-              <div 
-                key={Math.random()}
-                className={`mt-2 rounded-sm ${box === true ? "bg-green-600" : box === null ? "bg-yellow-600" : !box ? "bg-red-600" : "" }`}
-            >
-                <p className="text-sm xl:text-2xl text-black">{JSON.stringify(box)}</p>
-                
-            </div>
-            ))}
-
-          </div>
+            <Task item={item}/>
         ))}
       </div>
     );
+  }
 }
 
 export default WinTheDay
