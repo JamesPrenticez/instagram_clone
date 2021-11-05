@@ -2,6 +2,9 @@ import React from "react"
 import Task from "./Task";
 import TaskAdd from "./TaskAdd";
 
+import { useRecoilValue } from 'recoil';
+import { tasksState } from '../atoms/task';
+
 const todos = [
     {
         id: 0,
@@ -23,13 +26,9 @@ const todos = [
     }
 ]
 
-class WinTheDay extends React.Component{
-    componentDidMount() {
-    //get Task from DB
-    //set Task in state
-  }
 
-render(){
+function WinTheDay(){
+  const tasksList = useRecoilValue(tasksState)
     return (
       <div className="p-4 xl:mt-4 xl:ml-4">
         <div className="grid grid-cols-12 text-custom-textColor justify-center items-center text-center font-semibold xl:text-5xl mb-4">
@@ -44,8 +43,11 @@ render(){
         </div>
 
         {/* Display Tasks */}
-        {todos.map((item) => (
-            <Task item={item}/>
+        {tasksList.map((item) => (
+            <Task 
+              key={Math.random()}
+              item={item}
+            />
         ))}
 
         {/* Add Task */}
@@ -53,7 +55,6 @@ render(){
           <TaskAdd />
       </div>
     );
-  }
 }
 
 export default WinTheDay

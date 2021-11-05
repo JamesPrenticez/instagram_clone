@@ -1,27 +1,33 @@
 import { useState } from 'react'
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { addTaskState, tasksState } from '../atoms/task';
 
 function TaskAdd(){
-     //We make this a 'controlled form
-    const [name, setName] = useState("")
+    const [name, setName] = useRecoilState(addTaskState)
+    const setTasks = useSetRecoilState(tasksState)
 
-    function handleChange(event){
-        setName(event.target.value)
+    function handleChange(e){
+        setName(e.target.value)
         console.log(name)
     }
 
-    function submit(){
-        const boxes = [null, null, null, null, null, null, null]
-
-        // Add to DB
-
-        // Add to State
-
-        //Dispatch to props?
-
+    function submit(e){
+        e.preventDefault()
+        setTasks(oldTasks => {
+            const newTasks = [
+                ...oldTasks,
+                {
+                 task: name,
+                 boxes: [null, null, null, null, null, null, null]
+                }
+            ]
+            return newTasks
+        })
+        setName("")
     }
 
     return(
-        <div className="grid grid-cols-12 mt-20">
+        <form className="grid grid-cols-12 mt-20">
         <input
             name='name'
             value={name}
@@ -35,10 +41,11 @@ function TaskAdd(){
         <button 
             className="border-2 border-custom-primaryAccent px-2 hover:bg-custom-primaryAccent rounded-full col-span-3 xl:text-2xl"
             onClick={submit}
+            type="sumbit"
         >
             Create Task
         </button>
-    </div>
+    </form>
     )
 }
 export default (TaskAdd) 
