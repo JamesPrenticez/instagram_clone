@@ -5,7 +5,7 @@ import {
     ClipboardListIcon
 } from "@heroicons/react/outline"
 import { HomeIcon } from "@heroicons/react/solid"
-import { signOut, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { modalState } from '../atoms/modal';
@@ -54,7 +54,7 @@ function Header() {
                             <DarkModeToggle />
                             <button 
                                 className="text-custom-secondary w-32 p-2 font-bold border border-gray-600 rounded hover:border-green-600 hover:text-green-600" 
-                                onClick={() => router.push('/auth/signin')} 
+                                onClick={signIn} 
                             >
                                 Sign In
                             </button>                        
